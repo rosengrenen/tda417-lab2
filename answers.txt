@@ -5,17 +5,17 @@
  *  Lab 2: Autocomplete
  ******************************************************************************/
 
-Name of lab group: [...]
-Group member A:    [...]
-Group member B:    [...]
+Name of lab group: Lab group 95
+Group member A:    Dino Pasalic
+Group member B:    Rasmus Rosengren
 
 
 /******************************************************************************
  *  How many hours did you spend on the assignment?
  *****************************************************************************/
 
-Group member A:    [...]
-Group member B:    [...]
+Group member A:    3 hours
+Group member B:    3 hours
 
 
 /******************************************************************************
@@ -23,7 +23,7 @@ Group member B:    [...]
  *  finds the first index of a key that equals the search key.
  *****************************************************************************/
 
-
+DONT USE LINEAR STUFFS!
 
 
 /******************************************************************************
@@ -56,7 +56,7 @@ numberOfMatches():   [...]
  *  Are there any known bugs / limitations?
  *****************************************************************************/
 
-
+casing
 
 
 /******************************************************************************
@@ -66,14 +66,14 @@ numberOfMatches():   [...]
  *  may have used in creating your design.
  *****************************************************************************/
 
-
+wikipedia for binary search algorithm (just a reminder)
 
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
  *****************************************************************************/
 
-
+used wrong comparator in autocomplete
 
 
 /******************************************************************************
@@ -82,6 +82,6 @@ numberOfMatches():   [...]
  *  you enjoyed doing it.                                             
  *****************************************************************************/
 
-
+good stuffs mate
 
   

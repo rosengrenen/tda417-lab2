@@ -19,7 +19,7 @@ public class RangeBinarySearch {
 
     int foundIndex = indexOf(a, key, comparator);
 
-    if (foundIndex == -1) {
+    if (foundIndex < 0) {
       return -1;
     }
 
@@ -48,7 +48,7 @@ public class RangeBinarySearch {
 
     int foundIndex = indexOf(a, key, comparator);
 
-    if (foundIndex == -1) {
+    if (foundIndex < 0) {
       return -1;
     }
 
@@ -85,6 +85,7 @@ public class RangeBinarySearch {
         hi = middle - 1;
       } else {
         foundIndex = middle;
+        break;
       }
     }
 
