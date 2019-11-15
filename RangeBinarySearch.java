@@ -29,7 +29,7 @@ public class RangeBinarySearch {
       } else if (value > 0) {
         hi = middle - 1;
       } else {
-        if (hi - lo <= 1) {
+        if (hi == lo) {
           foundIndex = middle;
           break;
         }
@@ -72,7 +72,7 @@ public class RangeBinarySearch {
       } else if (value > 0) {
         hi = middle - 1;
       } else {
-        if (hi - lo <= 1) {
+        if (hi == lo) {
           foundIndex = middle;
           break;
         }
