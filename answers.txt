@@ -14,8 +14,8 @@ Group member B:    Rasmus Rosengren
  *  How many hours did you spend on the assignment?
  *****************************************************************************/
 
-Group member A:    3 hours
-Group member B:    3 hours
+Group member A:    7 hours
+Group member B:    7 hours
 
 
 /******************************************************************************
@@ -23,8 +23,11 @@ Group member B:    3 hours
  *  finds the first index of a key that equals the search key.
  *****************************************************************************/
 
-DONT USE LINEAR STUFFS!
-
+First it binary searches to find one matching element. Then it uses a modified 
+binary search to find the lower edge of the matching elements. It does this by
+moving the "high index" down (closer to the edge) if the "middle index" element 
+is equal to the "high index". The search is finished when the low and high indices
+are equal or one space apart.
 
 /******************************************************************************
  *  What is the worst case time complexity in the number of compares
@@ -36,28 +39,26 @@ DONT USE LINEAR STUFFS!
  *  and lower-order terms, e.g., m^2 + m log n.
  *****************************************************************************/
 
-constructor:  [...]
+constructor:  O(n log n)
 
-[short explanation]
+The constructor sorts the input array using Arrays.sort, which under the hood uses
+a TimSort, which has a worst case complexity of O(n log n)
 
+allMatches(): O(log n + m log m)
 
-allMatches():   [...]
+allMatches uses two binary searches with worst case complexity O(log n) and then uses
+Arrays.sort to sort the matched terms, which as described above, has a worst case complexity of O(m log m)
 
-[short explanation]
+numberOfMatches(): O(log n)
 
-
-numberOfMatches():   [...]
-
-[short explanation]
-
-
+numberOfMatches uses two binary searches, which have a worst case complexity of O(log n)
 
 /******************************************************************************
  *  Are there any known bugs / limitations?
  *****************************************************************************/
 
-casing
-
+It does not support case insensitive searching, it also does not yet support
+fuzzy search
 
 /******************************************************************************
  *  Did you collaborate with any other students on this lab?
@@ -66,15 +67,20 @@ casing
  *  may have used in creating your design.
  *****************************************************************************/
 
-wikipedia for binary search algorithm (just a reminder)
+We did discuss with lab group 128 about their solutions so that we could compare 
+ours and their soloution to find out which was most efficient. This made it so 
+that we got a better understanding of what we were doing and of how it affected 
+time spent by each implementation of the algorithm
 
+We also used wikipedia for remind ourselves of the psuedo code implementation
+of binary search
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
  *****************************************************************************/
 
 used wrong comparator in autocomplete
-
+sorted the lists in the wrong order causing "invisible errors"
 
 /******************************************************************************
  *  List any other comments here. Feel free to provide any feedback   
@@ -82,6 +88,6 @@ used wrong comparator in autocomplete
  *  you enjoyed doing it.                                             
  *****************************************************************************/
 
-good stuffs mate
-
-  
+We think this was a good laboration as it spwaned a lot of discussion about 
+algortihms and wasn't too complicated to code which meant there was more room 
+to think about the algorithms used
