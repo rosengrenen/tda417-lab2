@@ -34,9 +34,9 @@ public class Term {
     return new Comparator<Term>() {
       @Override
       public int compare(Term leftTerm, Term rightTerm) {
-        if (leftTerm.weight < rightTerm.weight) {
+        if (leftTerm.weight > rightTerm.weight) {
           return -1;
-        } else if (leftTerm.weight > rightTerm.weight) {
+        } else if (leftTerm.weight < rightTerm.weight) {
           return 1;
         }
 
