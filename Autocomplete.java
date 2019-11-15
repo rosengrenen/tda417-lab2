@@ -24,11 +24,12 @@ public class Autocomplete {
     }
 
     int firstIndex = RangeBinarySearch.firstIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
-    int lastIndex = RangeBinarySearch.lastIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
 
     if (firstIndex == -1) {
       return new Term[0];
     }
+
+    int lastIndex = RangeBinarySearch.lastIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
 
     Term[] matches = new Term[lastIndex - firstIndex + 1];
 
@@ -49,11 +50,12 @@ public class Autocomplete {
     }
 
     int firstIndex = RangeBinarySearch.firstIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
-    int lastIndex = RangeBinarySearch.lastIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
 
     if (firstIndex < 0) {
       return 0;
     }
+
+    int lastIndex = RangeBinarySearch.lastIndexOf(terms, new Term(prefix, 0), Term.byPrefixOrder(prefix.length()));
 
     return lastIndex - firstIndex + 1;
   }
