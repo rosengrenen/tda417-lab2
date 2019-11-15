@@ -17,7 +17,25 @@ public class RangeBinarySearch {
       throw new NullPointerException("comparator is null");
     }
 
-    int foundIndex = indexOf(a, key, comparator);
+    int lo = 0;
+    int hi = a.length - 1;
+    int foundIndex = -1;
+
+    while (lo <= hi) {
+      int middle = (lo + hi) / 2;
+      int value = comparator.compare(a[middle], key);
+      if (value < 0) {
+        lo = middle + 1;
+      } else if (value > 0) {
+        hi = middle - 1;
+      } else {
+        hi = middle;
+        if (hi - lo <= 1) {
+          foundIndex = middle;
+          break;
+        }
+      }
+    }
 
     if (foundIndex < 0) {
       return -1;
@@ -46,32 +64,6 @@ public class RangeBinarySearch {
       throw new NullPointerException("comparator is null");
     }
 
-    int foundIndex = indexOf(a, key, comparator);
-
-    if (foundIndex < 0) {
-      return -1;
-    }
-
-    while (foundIndex < a.length - 1 && comparator.compare(a[foundIndex], a[foundIndex + 1]) == 0) {
-      foundIndex = foundIndex + 1;
-    }
-
-    return foundIndex;
-  }
-
-  private static <Key> int indexOf(Key[] a, Key key, Comparator<Key> comparator) {
-    if (a == null) {
-      throw new NullPointerException("array is null");
-    }
-
-    if (key == null) {
-      throw new NullPointerException("key is null");
-    }
-
-    if (comparator == null) {
-      throw new NullPointerException("comparator is null");
-    }
-
     int lo = 0;
     int hi = a.length - 1;
     int foundIndex = -1;
@@ -84,9 +76,20 @@ public class RangeBinarySearch {
       } else if (value > 0) {
         hi = middle - 1;
       } else {
-        foundIndex = middle;
-        break;
+        lo = middle;
+        if (hi - lo <= 1) {
+          foundIndex = middle;
+          break;
+        }
       }
+    }
+
+    if (foundIndex < 0) {
+      return -1;
+    }
+
+    while (foundIndex < a.length - 1 && comparator.compare(a[foundIndex], a[foundIndex + 1]) == 0) {
+      foundIndex = foundIndex + 1;
     }
 
     return foundIndex;
