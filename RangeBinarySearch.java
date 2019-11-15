@@ -29,20 +29,16 @@ public class RangeBinarySearch {
       } else if (value > 0) {
         hi = middle - 1;
       } else {
-        hi = middle;
         if (hi - lo <= 1) {
           foundIndex = middle;
           break;
         }
+        hi = middle;
       }
     }
 
     if (foundIndex < 0) {
       return -1;
-    }
-
-    while (foundIndex > 0 && comparator.compare(a[foundIndex], a[foundIndex - 1]) == 0) {
-      foundIndex = foundIndex - 1;
     }
 
     return foundIndex;
@@ -69,27 +65,23 @@ public class RangeBinarySearch {
     int foundIndex = -1;
 
     while (lo <= hi) {
-      int middle = (lo + hi) / 2;
+      int middle = (int) Math.ceil((double) (lo + hi) / 2.0);
       int value = comparator.compare(a[middle], key);
       if (value < 0) {
         lo = middle + 1;
       } else if (value > 0) {
         hi = middle - 1;
       } else {
-        lo = middle;
         if (hi - lo <= 1) {
           foundIndex = middle;
           break;
         }
+        lo = middle;
       }
     }
 
     if (foundIndex < 0) {
       return -1;
-    }
-
-    while (foundIndex < a.length - 1 && comparator.compare(a[foundIndex], a[foundIndex + 1]) == 0) {
-      foundIndex = foundIndex + 1;
     }
 
     return foundIndex;
