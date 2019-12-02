@@ -55,6 +55,16 @@ public class Term {
     return new Comparator<Term>() {
       @Override
       public int compare(Term leftTerm, Term rightTerm) {
+        int shortest = Math.min(leftTerm.query.length(), rightTerm.query.length());
+        if (shortest < k) {
+          int result = leftTerm.query.substring(0, shortest).compareTo(rightTerm.query.substring(0, shortest));
+          if (result == 0) {
+            return leftTerm.query.length() - rightTerm.query.length();
+          }
+
+          return result;
+        }
+
         return leftTerm.query.substring(0, k).compareTo(rightTerm.query.substring(0, k));
       }
     };
