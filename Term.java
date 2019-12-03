@@ -59,6 +59,7 @@ public class Term {
         if (shortest < k) {
           int result = leftTerm.query.substring(0, shortest).compareTo(rightTerm.query.substring(0, shortest));
           if (result == 0) {
+            // If the substrings match, the longer query is the larger term
             return leftTerm.query.length() - rightTerm.query.length();
           }
 
